@@ -26,6 +26,9 @@ if (-not $Message -or $Message.Trim() -eq "") {
     }
 }
 
+Write-Host "Pulling all changes..."
+git pull 2>&1
+
 Write-Host "Staging all changes..."
 git add . 2>&1 | Write-Host
 
