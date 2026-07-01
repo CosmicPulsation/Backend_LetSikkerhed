@@ -28,6 +28,5 @@ public static class Users
     public static async Task<IActionResult> CreateUser(UserUpdats userUpdats,UserRequestCreate user)
     {  
         return new OkObjectResult(await userUpdats.CreateUserAsync(user));
-
     }
 }

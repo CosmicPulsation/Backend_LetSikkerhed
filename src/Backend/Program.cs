@@ -1,4 +1,3 @@
-using Backend.Database;
 using LetSikkerhed.Backend.Database;
 using Microsoft.EntityFrameworkCore;
 
