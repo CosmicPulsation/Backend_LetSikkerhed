@@ -12,6 +12,16 @@ public class Program
         // Add services to the container.
         builder.Services.AddAuthorization();
 
+        builder.Services.AddCors(options =>
+        {
+            options.AddPolicy("OpenApi", policy =>
+            {
+                policy.AllowAnyOrigin()
+                    .AllowAnyHeader()
+                    .AllowAnyMethod();
+            });
+        });
+        
         builder.Services.AddDbContext<UserDatabaseContext>(options =>
             options.UseNpgsql(builder.Configuration.GetConnectionString("LetSikkerhedConnectionString")));
         
@@ -24,6 +34,7 @@ public class Program
         if (app.Environment.IsDevelopment())
         {
             app.MapOpenApi();
+            app.UseCors("OpenApi");
         }
 
         app.UseHttpsRedirection();
