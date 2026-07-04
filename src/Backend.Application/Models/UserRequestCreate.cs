@@ -1,4 +1,4 @@
-﻿namespace Backend.Application.Modles;
+﻿namespace Backend.Application.Models;
 
 public class UserRequestCreate
 {
