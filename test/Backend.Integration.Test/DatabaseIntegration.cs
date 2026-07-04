@@ -8,7 +8,7 @@ namespace Backend.Integration.Test;
 
 public static class DatabaseIntegrationExtensions
 {
-    public static async Task AddDBContext<TDatabaseContext>(this IServiceCollection serviceCollection, string databseName) where TDatabaseContext : DbContext
+    public static void AddDBContext<TDatabaseContext>(this IServiceCollection serviceCollection, string databseName) where TDatabaseContext : DbContext
     {
         serviceCollection.AddDbContext<TDatabaseContext>(async (serviceCollection, options) =>
         {

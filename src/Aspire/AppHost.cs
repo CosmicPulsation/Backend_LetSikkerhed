@@ -17,6 +17,8 @@ var migrator = builder.AddProject<Backend_Migrator>("letsikkerhed-migrator")
     .WaitFor(database);
 
 var backend = builder.AddProject<Backend>("LetSikkerhedBackend")
+    .WithHttpsEndpoint()
+    .WithHttpEndpoint()
     .WithReference(database)
     .WaitForCompletion(migrator);
 
