@@ -11,4 +11,7 @@
         <Project Path="src/Backend.Migrator/Backend.Migrator.csproj" />
         <Project Path="src/Backend/Backend.csproj" />
     </Folder>
+    <Folder Name="/test/">
+        <Project Path="test/Backend.Integration.Test/Backend.Integration.Test.csproj" />
+    </Folder>
 </Solution>
