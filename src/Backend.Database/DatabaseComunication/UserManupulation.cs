@@ -17,6 +17,7 @@ public class UserManupulation(UserDatabaseContext DatabaseContext)
     public async Task<Guid> CreateUser(User user)
     {
         var resoult = await DatabaseContext.Users.AddAsync(user);
+        await DatabaseContext.SaveChangesAsync();
         return resoult.Entity.Id;
     }
 }

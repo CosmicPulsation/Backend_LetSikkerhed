@@ -1,9 +1,12 @@
-﻿using System.Net.Http.Json;
+﻿using System;
+using System.Net.Http.Json;
+using System.Threading.Tasks;
 using Aspire.Hosting.Testing;
 using AwesomeAssertions;
 using Backend.Application.Models;
 using LetSikkerhed.Backend.Database;
 using Microsoft.EntityFrameworkCore;
+using Xunit;
 
 namespace Backend.Integration.Test;
 
