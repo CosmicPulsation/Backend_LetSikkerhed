@@ -10,6 +10,13 @@
 
     <ItemGroup>
       <PackageReference Include="Aspire.Hosting.PostgreSQL" Version="13.4.0" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore" Version="10.0.9" />
+      <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="10.0.2" />
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\Backend.Database\Backend.Database.csproj" />
+      <ProjectReference Include="..\Backend.Migrator\Backend.Migrator.csproj" />
+      <ProjectReference Include="..\Backend\Backend.csproj" />
+    </ItemGroup>
 </Project>

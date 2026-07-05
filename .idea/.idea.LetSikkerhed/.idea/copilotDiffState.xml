@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CopilotDiffPersistence">
+    <option name="pendingDiffs">
+      <map>
+        <entry key="$PROJECT_DIR$/LetSikkerhed.slnx">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/LetSikkerhed.slnx" />
+              <option name="originalContent" value="&lt;Solution&gt;&#10;    &lt;Configurations&gt;&#10;        &lt;Platform Name=&quot;Any CPU&quot; /&gt;&#10;        &lt;Platform Name=&quot;x64&quot; /&gt;&#10;        &lt;Platform Name=&quot;x86&quot; /&gt;&#10;    &lt;/Configurations&gt;&#10;    &lt;Folder Name=&quot;/src/&quot;&gt;&#10;        &lt;Project Path=&quot;src/Aspire/Aspire.csproj&quot; /&gt;&#10;        &lt;Project Path=&quot;src/Backend.Database/Backend.Database.csproj&quot; /&gt;&#10;        &lt;Project Path=&quot;src/Backend/Backend.csproj&quot; /&gt;&#10;    &lt;/Folder&gt;&#10;&lt;/Solution&gt;" />
+              <option name="updatedContent" value="&lt;Solution&gt;&#10;    &lt;Configurations&gt;&#10;        &lt;Platform Name=&quot;Any CPU&quot; /&gt;&#10;        &lt;Platform Name=&quot;x64&quot; /&gt;&#10;        &lt;Platform Name=&quot;x86&quot; /&gt;&#10;    &lt;/Configurations&gt;&#10;    &lt;Folder Name=&quot;/src/&quot;&gt;&#10;        &lt;Project Path=&quot;src/Aspire/Aspire.csproj&quot; /&gt;&#10;        &lt;Project Path=&quot;src/Backend.Database/Backend.Database.csproj&quot; /&gt;&#10;        &lt;Project Path=&quot;src/Backend.Migrator/Backend.Migrator.csproj&quot; /&gt;&#10;        &lt;Project Path=&quot;src/Backend/Backend.csproj&quot; /&gt;&#10;    &lt;/Folder&gt;&#10;&lt;/Solution&gt;" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

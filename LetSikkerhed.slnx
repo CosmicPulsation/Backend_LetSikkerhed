@@ -6,5 +6,9 @@
     </Configurations>
     <Folder Name="/src/">
         <Project Path="src/Aspire/Aspire.csproj" />
+        <Project Path="src/Backend.Application/Backend.Application.csproj" />
+        <Project Path="src/Backend.Database/Backend.Database.csproj" />
+        <Project Path="src/Backend.Migrator/Backend.Migrator.csproj" />
+        <Project Path="src/Backend/Backend.csproj" />
     </Folder>
 </Solution>
