@@ -11,7 +11,8 @@ public static class Users
     public static void Register(this WebApplication app)
     {
         app.MapGet("/users", GetUsers);
-        app.MapPost("/user", CreateUser);
+        app.MapPost("/user", CreateUser)
+            .Accepts<UserRequestCreate>("application/json");
     }
     
     public static async Task<IActionResult> GetUsers([FromServices]UserManupulation userMaiManupulation,[FromQuery] UsersRequestContract request)
