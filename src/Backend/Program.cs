@@ -1,10 +1,10 @@
 using Backend.Application;
-using Backend.Endpoints;
 using LetSikkerhed.Backend.Database;
 using LetSikkerhed.Backend.Database.DatabaseComunication;
+using LetSikkerhed.Backend.Endpoints;
 using Microsoft.EntityFrameworkCore;
 
-namespace Backend;
+namespace LetSikkerhed.Backend;
 
 public class Program
 {
@@ -24,7 +24,7 @@ public class Program
         });
         
         builder.Services.AddDbContext<UserDatabaseContext>(options =>
-                options.UseNpgsql(builder.Configuration.GetConnectionString("LetSikkerhedConnectionString")));
+                options.UseNpgsql(builder.Configuration.GetConnectionString(AppConfigNames.DatabaseName)));
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddTransient<UserManupulation>();
         builder.Services.AddTransient<UserUpdats>();

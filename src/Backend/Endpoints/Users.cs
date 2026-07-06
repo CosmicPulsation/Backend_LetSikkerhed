@@ -1,10 +1,10 @@
 ﻿using Backend.Application;
 using Backend.Application.Models;
-using Backend.Endpoints.EndpointContracts.User;
 using LetSikkerhed.Backend.Database.DatabaseComunication;
+using LetSikkerhed.Backend.Endpoints.EndpointContracts.User;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Backend.Endpoints;
+namespace LetSikkerhed.Backend.Endpoints;
 
 public static class Users
 {

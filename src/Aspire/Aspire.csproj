@@ -17,4 +17,10 @@
       <ProjectReference Include="..\Backend.Migrator\Backend.Migrator.csproj" />
       <ProjectReference Include="..\Backend\Backend.csproj" />
     </ItemGroup>
+
+    <ItemGroup>
+      <Compile Include="..\Backend\AppConfigNames.cs">
+        <Link>AppConfigNames.cs</Link>
+      </Compile>
+    </ItemGroup>
 </Project>

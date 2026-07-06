@@ -1,3 +1,4 @@
+using LetSikkerhed.Backend;
 using LetSikkerhed.Backend.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -7,7 +8,7 @@ using Microsoft.Extensions.Hosting;
 var builder = Host.CreateApplicationBuilder(args);
 
 builder.Services.AddDbContext<UserDatabaseContext>(options =>
-    options.UseNpgsql(builder.Configuration.GetConnectionString("LetSikkerhedConnectionString")));
+    options.UseNpgsql(builder.Configuration.GetConnectionString(AppConfigNames.DatabaseName)));
 
 using var host = builder.Build();
 using var scope = host.Services.CreateScope();

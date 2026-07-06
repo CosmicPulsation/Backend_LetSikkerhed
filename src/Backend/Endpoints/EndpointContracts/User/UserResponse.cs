@@ -1,4 +1,4 @@
-﻿namespace Backend.Endpoints.EndpointContracts.User;
+﻿namespace LetSikkerhed.Backend.Endpoints.EndpointContracts.User;
 
 public class UserResponse
 {
