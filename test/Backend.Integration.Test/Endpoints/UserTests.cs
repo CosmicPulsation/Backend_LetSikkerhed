@@ -35,7 +35,7 @@ public class UserTests
 
         // Assert
         response.EnsureSuccessStatusCode();
-        var connectionstring = await app.GetConnectionStringAsync(AppConfigNames.DatabaseName, TestContext.Current.CancellationToken);
+        var connectionstring = await app.GetConnectionStringAsync(AppConfigNamesAspire.DatabaseName, TestContext.Current.CancellationToken);
         DbContextOptionsBuilder<UserDatabaseContext> optionsBuilder = new DbContextOptionsBuilder<UserDatabaseContext>();
         optionsBuilder.UseNpgsql(connectionstring);
         using var sqlConnection = new UserDatabaseContext(optionsBuilder.Options);

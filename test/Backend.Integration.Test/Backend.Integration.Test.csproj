@@ -24,10 +24,4 @@
       <ProjectReference Include="..\..\src\Aspire\Aspire.csproj" />
       <ProjectReference Include="..\..\src\Backend\Backend.csproj" />
     </ItemGroup>
-
-    <ItemGroup>
-        <Compile Include="..\..\src\Backend\AppConfigNames.cs">
-            <Link>AppConfigNames.cs</Link>
-        </Compile>
-    </ItemGroup>
 </Project>

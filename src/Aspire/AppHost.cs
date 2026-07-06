@@ -6,7 +6,7 @@ var builder = DistributedApplication.CreateBuilder(args);
 
 var database = builder.AddPostgres(AppConfigNamesAspire.PostgresClusterName)
     .WithPgAdmin()
-    .AddDatabase(AppConfigNames.DatabaseName);
+    .AddDatabase(AppConfigNamesAspire.DatabaseName);
 
 var migrator = builder.AddProject<Backend_Migrator>(AppConfigNamesAspire.DatabaseMigration)
     .WithReference(database)

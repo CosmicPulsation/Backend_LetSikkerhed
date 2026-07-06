@@ -2,6 +2,7 @@
 
 public class AppConfigNamesAspire
 {
+    public const string DatabaseName = AppConfigNames.DatabaseName;
     public const string OpenApiui = "OpenAPIUI";
     public const string BackendApplication = "Letsikkerhed";
     public const string UiApplication = "LetsikkerhedAdminPanel";
