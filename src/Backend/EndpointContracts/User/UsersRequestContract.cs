@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 
-namespace LetSikkerhed.Backend.Endpoints.EndpointContracts.User;
+namespace LetSikkerhed.Backend.EndpointContracts.User;
 
 public class UsersRequestContract : IParsable<UsersRequestContract?>
 {

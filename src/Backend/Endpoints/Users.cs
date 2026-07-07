@@ -1,21 +1,21 @@
 ﻿using Backend.Application;
 using Backend.Application.Models;
 using LetSikkerhed.Backend.Database.DatabaseComunication;
-using LetSikkerhed.Backend.Endpoints.EndpointContracts.User;
+using LetSikkerhed.Backend.EndpointContracts.User;
 using Microsoft.AspNetCore.Mvc;
 
 namespace LetSikkerhed.Backend.Endpoints;
 
 public static class Users
 {
-    public static void Register(this WebApplication app)
+    public static void RegisterUsers(this WebApplication app)
     {
         app.MapGet("/users", GetUsers);
         app.MapPost("/user", CreateUser)
             .Accepts<UserRequestCreate>("application/json");
     }
     
-    public static async Task<IActionResult> GetUsers([FromServices]UserManupulation userMaiManupulation,[FromQuery] UsersRequestContract request)
+    public static async Task<IResult> GetUsers([FromServices]UserManupulation userMaiManupulation,[FromQuery] UsersRequestContract request)
     {
         var users = await userMaiManupulation.GetUsers().Select(x => new UserResponse
         {
@@ -23,11 +23,11 @@ public static class Users
             UserName = x.UserName,
             Email = x.Email
         }).ToArrayAsync();
-        return new OkObjectResult(users);
+        return Results.Ok(users);
     }
     
-    public static async Task<IActionResult> CreateUser([FromServices]UserUpdats userUpdats,[FromBody] UserRequestCreate user)
+    public static async Task<IResult> CreateUser([FromServices]UserUpdats userUpdats,[FromBody] UserRequestCreate user)
     {  
-        return new OkObjectResult(await userUpdats.CreateUserAsync(user));
+        return Results.Ok(await userUpdats.CreateUserAsync(user));
     }
 }

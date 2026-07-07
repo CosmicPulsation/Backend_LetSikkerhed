@@ -28,6 +28,7 @@ public class Program
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddTransient<UserManupulation>();
         builder.Services.AddTransient<UserUpdats>();
+        builder.Services.AddTransient<Authicate>();
         
         // Learn more about  configuring OpenAPI at https://aka.ms/aspnet/openapi
         builder.Services.AddOpenApi();
@@ -45,7 +46,8 @@ public class Program
 
 
         app.UseAuthorization();
-        app.Register();
+        app.RegisterUsers();
+        app.RegisterAuthentication();
         await app.RunAsync();
     }
 }

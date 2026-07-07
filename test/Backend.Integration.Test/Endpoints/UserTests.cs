@@ -52,11 +52,12 @@ public class UserTests
                 appOptions.DisableDashboard = false; 
                 appOptions.AllowUnsecuredTransport = false;
             }, cancellationToken: TestContext.Current.CancellationToken);
+        
         using var app = await appHost.BuildAsync(TestContext.Current.CancellationToken);
         await app.StartAsync(TestContext.Current.CancellationToken);
-        await app.ResourceNotifications.WaitForResourceAsync("LetSikkerheidsBackend");
-        using var httpClient = app.CreateHttpClient("LetSikkerheidsBackend");
-
+        await app.ResourceNotifications.WaitForResourceAsync(AppConfigNamesAspire.BackendApplication, cancellationToken: TestContext.Current.CancellationToken);
+        using var httpClient = app.CreateHttpClient(AppConfigNamesAspire.BackendApplication);
+        
         var userName = "existinguser";
         var createRequest = new UserRequestCreate { UserName = userName, Email = "test@user.dk", PasswordHash = "hash123" };
         await httpClient.PostAsJsonAsync( "user", createRequest, TestContext.Current.CancellationToken);
@@ -65,7 +66,7 @@ public class UserTests
 
         // Assert
         getResponse.EnsureSuccessStatusCode();
-        var returnedUser = await getResponse.Content.ReadFromJsonAsync<UserRequestCreate>();
+        var returnedUser = await getResponse.Content.ReadFromJsonAsync<UserRequestCreate>(TestContext.Current.CancellationToken);
         returnedUser!.UserName.Should().Be(userName);
     }
 
@@ -79,14 +80,15 @@ public class UserTests
                 appOptions.DisableDashboard = false;
                 appOptions.AllowUnsecuredTransport = false;
             }, cancellationToken: TestContext.Current.CancellationToken);
+        
         using var app = await appHost.BuildAsync(TestContext.Current.CancellationToken);
         await app.StartAsync(TestContext.Current.CancellationToken);
-        await app.ResourceNotifications.WaitForResourceAsync("LetSikkenheidsBackend");
-        using var httpClient = app.CreateHttpClient("LetSikkerheidsBackend");
-
+        await app.ResourceNotifications.WaitForResourceAsync(AppConfigNamesAspire.BackendApplication, cancellationToken: TestContext.Current.CancellationToken);
+        using var httpClient = app.CreateHttpClient(AppConfigNamesAspire.BackendApplication);
+        
         var invalidRequest = new UserRequestCreate { UserName = "", Email = "invalid", PasswordHash = "" };
         // Act
-        var response = await httpClient.PostAsJsonAsync(new Uri(httpClient.BaseAddress, "user"), invalidRequest, TestContext.Current.CancellationToken);
+        var response = await httpClient.PostAsJsonAsync("user", invalidRequest, TestContext.Current.CancellationToken);
 
         // Assert
         response.StatusCode.Should().Be(HttpStatusCode.BadRequest);
