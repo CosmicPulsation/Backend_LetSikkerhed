@@ -1,22 +1,33 @@
 ﻿using Aspire.Hosting;
 using Aspire.Hosting.Testing;
-using AwesomeAssertions;
 using LetSikkerhed.Backend;
 using LetSikkerhed.Backend.Database;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Internal;
-using Microsoft.Extensions.DependencyInjection;
 
 namespace Backend.Integration.Test;
 
 public static class DatabaseIntegrationExtensions
 {
-    public static async Task<DbContextOptions<TDatabaseContext>> GetDatabaseContextOptions<TDatabaseContext>(this DistributedApplicationFactory app,
-        string databseName) where TDatabaseContext : DbContext
+    public static async Task<UserDatabaseContext> CreateUserContextAsync(
+        this DistributedApplication app,
+        CancellationToken cancellationToken = default)
     {
-        var connectionstring = await app.GetConnectionString(databseName);
-        var optionsBuilder = new DbContextOptionsBuilder<TDatabaseContext>();
-        optionsBuilder.UseNpgsql(connectionstring);
-        return optionsBuilder.Options;
+        return await app.CreateUserContextAsync<UserDatabaseContext>(AppConfigNamesAspire.DatabaseName,
+            x => new UserDatabaseContext(x),
+            cancellationToken);
+    }
+    public static async Task<TDarabaseContext> CreateUserContextAsync<TDarabaseContext>(
+        this DistributedApplication app, 
+        string databaseName,
+        Func<DbContextOptions<TDarabaseContext>, TDarabaseContext> createDatabaseContext,
+        CancellationToken cancellationToken = default) where TDarabaseContext : DbContext
+    {
+        // Retrieve the connection string exactly as it's defined in the Aspire configuration
+        var connectionString = await app.GetConnectionStringAsync(databaseName, cancellationToken);
+
+        // Configure and return the context
+        var optionsBuilder = new DbContextOptionsBuilder<TDarabaseContext>();
+        optionsBuilder.UseNpgsql(connectionString);
+        return createDatabaseContext.Invoke(optionsBuilder.Options);
     }
 }

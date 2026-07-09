@@ -4,8 +4,6 @@ using LetSikkerhed.Backend;
 using Aspire.Hosting.Testing;
 using AwesomeAssertions;
 using Backend.Application.Models;
-using LetSikkerhed.Backend.Database;
-using Microsoft.EntityFrameworkCore;
 
 namespace Backend.Integration.Test;
 
@@ -35,10 +33,7 @@ public class UserTests
 
         // Assert
         response.EnsureSuccessStatusCode();
-        var connectionstring = await app.GetConnectionStringAsync(AppConfigNamesAspire.DatabaseName, TestContext.Current.CancellationToken);
-        DbContextOptionsBuilder<UserDatabaseContext> optionsBuilder = new DbContextOptionsBuilder<UserDatabaseContext>();
-        optionsBuilder.UseNpgsql(connectionstring);
-        using var sqlConnection = new UserDatabaseContext(optionsBuilder.Options);
+        using var sqlConnection = await app.CreateUserContextAsync(TestContext.Current.CancellationToken);
         sqlConnection.Users.Should().ContainSingle(u => u.UserName == userName);
     }
 
