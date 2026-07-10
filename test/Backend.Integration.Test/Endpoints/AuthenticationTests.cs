@@ -54,8 +54,6 @@ public class AuthenticationTests
             }, cancellationToken: TestContext.Current.CancellationToken);
 
         using var app = await appHost.BuildAsync(TestContext.Current.CancellationToken);
-        using var sqlConnection = await app.CreateUserContextAsync(TestContext.Current.CancellationToken);
-        
         await app.StartAsync(TestContext.Current.CancellationToken);
         await app.ResourceNotifications.WaitForResourceAsync(AppConfigNamesAspire.BackendApplication, cancellationToken: TestContext.Current.CancellationToken);
         using var httpClient = app.CreateHttpClient(AppConfigNamesAspire.BackendApplication);
