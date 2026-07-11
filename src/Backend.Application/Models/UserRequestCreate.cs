@@ -1,8 +1,7 @@
-﻿namespace Backend.Application.Models;
+﻿using LetSikkerhed.Backend.DataModles.BaseModles;
 
-public class UserRequestCreate
+namespace Backend.Application.Models;
+
+public class UserRequestCreate : UserRequestCreateBase
 {
-    public string UserName { get; set; } = string.Empty;
-    public string Email { get; set; } = string.Empty;
-    public string PasswordHash { get; set; } = string.Empty;
 }

@@ -10,12 +10,12 @@ public static class Users
 {
     public static void RegisterUsers(this WebApplication app)
     {
-        app.MapGet("/users", GetUsers);
-        app.MapPost("/user", CreateUser)
+        app.MapGet(DataModles.UsersRequestContract.route, GetUsers);
+        app.MapPost(DataModles.UserRequestCreate.route, CreateUser)
             .Accepts<UserRequestCreate>("application/json");
     }
     
-    public static async Task<IResult> GetUsers([FromServices]UserManupulation userMaiManupulation,[FromQuery] UsersRequestContract request)
+    public static async Task<IResult> GetUsers([FromServices]UserManupulation userMaiManupulation,[FromQuery] UsersRequestContractPaser request)
     {
         var users = await userMaiManupulation.GetUsers().Select(x => new UserResponse
         {

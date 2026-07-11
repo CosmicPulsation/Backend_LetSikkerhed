@@ -21,6 +21,7 @@
     <ItemGroup>
       <ProjectReference Include="..\Backend.Application\Backend.Application.csproj" />
       <ProjectReference Include="..\Backend.Database\Backend.Database.csproj" />
+      <ProjectReference Include="..\Backend.DataModles\Backend.DataModles.csproj" />
     </ItemGroup>
 
 </Project>

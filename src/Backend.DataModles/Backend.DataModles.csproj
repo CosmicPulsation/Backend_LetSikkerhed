@@ -4,11 +4,7 @@
         <TargetFramework>net10.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
+        <RootNamespace>LetSikkerhed.Backend.DataModles</RootNamespace>
     </PropertyGroup>
-
-    <ItemGroup>
-      <ProjectReference Include="..\Backend.Database\Backend.Database.csproj" />
-      <ProjectReference Include="..\Backend.DataModles\Backend.DataModles.csproj" />
-    </ItemGroup>
 
 </Project>

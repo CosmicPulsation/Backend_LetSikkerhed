@@ -1,21 +1,18 @@
 ﻿using System.Diagnostics.CodeAnalysis;
+using LetSikkerhed.Backend.DataModles.BaseModles;
 
 namespace LetSikkerhed.Backend.EndpointContracts.User;
 
-public class UsersRequestContract : IParsable<UsersRequestContract?>
+public class UsersRequestContractPaser : UsersRequestContractBase, IParsable<UsersRequestContractPaser>
 {
-    public string? Username { get; set; }
-    
-    public string? Id { get; set; }
-
-    public static UsersRequestContract? Parse(string s, IFormatProvider? provider)
+    public static UsersRequestContractPaser? Parse(string s, IFormatProvider? provider)
     {
         if (TryParse(s, provider, out var result))
             return result;
         throw new FormatException($"Unable to parse request string '{s}'.");
     }
 
-    public static bool TryParse([NotNullWhen(true)] string? s, IFormatProvider? provider, out UsersRequestContract? result)
+    public static bool TryParse([NotNullWhen(true)] string? s, IFormatProvider? provider, out UsersRequestContractPaser? result)
     {
         if (string.IsNullOrEmpty(s))
         {
@@ -44,7 +41,7 @@ public class UsersRequestContract : IParsable<UsersRequestContract?>
         var username = query.TryGetValue("Username", out var u) ? u : null;
         var id       = query.TryGetValue("Id", out var i)     ? i : null;
 
-        result = new UsersRequestContract { Username = username, Id = id };
+        result = new UsersRequestContractPaser { Username = username, Id = id };
         return true;
     }
 }

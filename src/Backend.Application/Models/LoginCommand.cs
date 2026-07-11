@@ -1,8 +1,5 @@
-﻿namespace Backend.Application.Models;
+﻿using LetSikkerhed.Backend.DataModles.BaseModles;
 
-public class LoginCommand
-{
-    public string UserName { get; set; }
-    
-    public string PasswordHash { get; set; }
-}
+namespace Backend.Application.Models;
+
+public class LoginCommand : LoginCommandBase;
