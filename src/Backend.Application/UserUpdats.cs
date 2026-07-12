@@ -1,9 +1,9 @@
 ﻿using System.Security.Cryptography;
-using Backend.Application.Models;
+using LetSikkerhed.Backend.Application.Models;
 using LetSikkerhed.Backend.Database.DatabaseComunication;
 using LetSikkerhed.Backend.Database.Models;
 
-namespace Backend.Application;
+namespace LetSikkerhed.Backend.Application;
 
 public class UserUpdats(UserManupulation UserMaiManupulation)
 {

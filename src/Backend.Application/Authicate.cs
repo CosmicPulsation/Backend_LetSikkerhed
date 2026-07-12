@@ -1,8 +1,8 @@
 ﻿using System.Security.Cryptography;
-using Backend.Application.Models;
+using LetSikkerhed.Backend.Application.Models;
 using LetSikkerhed.Backend.Database.DatabaseComunication;
 
-namespace Backend.Application;
+namespace LetSikkerhed.Backend.Application;
 
 public class Authicate(UserManupulation UserManupulation)
 {

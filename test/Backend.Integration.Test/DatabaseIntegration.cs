@@ -1,6 +1,6 @@
-﻿using Aspire.Hosting;
+﻿using Aspire;
+using Aspire.Hosting;
 using Aspire.Hosting.Testing;
-using LetSikkerhed.Backend;
 using LetSikkerhed.Backend.Database;
 using Microsoft.EntityFrameworkCore;
 

@@ -1,4 +1,4 @@
-using LetSikkerhed.Backend;
+using Aspire;
 using Projects;
 
 var builder = DistributedApplication.CreateBuilder(args);

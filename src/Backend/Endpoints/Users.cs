@@ -1,5 +1,5 @@
-﻿using Backend.Application;
-using Backend.Application.Models;
+﻿using LetSikkerhed.Backend.Application;
+using LetSikkerhed.Backend.Application.Models;
 using LetSikkerhed.Backend.Database.DatabaseComunication;
 using LetSikkerhed.Backend.EndpointContracts.User;
 using Microsoft.AspNetCore.Mvc;

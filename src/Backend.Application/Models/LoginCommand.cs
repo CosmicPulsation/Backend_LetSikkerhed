@@ -1,5 +1,5 @@
 ﻿using LetSikkerhed.Backend.DataModles.BaseModles;
 
-namespace Backend.Application.Models;
+namespace LetSikkerhed.Backend.Application.Models;
 
 public class LoginCommand : LoginCommandBase;

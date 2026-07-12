@@ -1,4 +1,6 @@
-﻿namespace LetSikkerhed.Backend;
+﻿using LetSikkerhed.Backend;
+
+namespace Aspire;
 
 public class AppConfigNamesAspire
 {

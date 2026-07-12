@@ -1,10 +1,10 @@
 ﻿using System.Net;
 using System.Net.Http.Json;
+using Aspire;
 using Aspire.Hosting.Testing;
 using AwesomeAssertions;
-using Backend.Application;
-using Backend.Application.Models;
-using LetSikkerhed.Backend;
+using LetSikkerhed.Backend.Application;
+using LetSikkerhed.Backend.Application.Models;
 using LetSikkerhed.Backend.Database.DatabaseComunication;
 
 namespace Backend.Integration.Test;

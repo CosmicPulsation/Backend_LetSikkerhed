@@ -1,4 +1,4 @@
-using Backend.Application;
+using LetSikkerhed.Backend.Application;
 using LetSikkerhed.Backend.Database;
 using LetSikkerhed.Backend.Database.DatabaseComunication;
 using LetSikkerhed.Backend.Endpoints;
